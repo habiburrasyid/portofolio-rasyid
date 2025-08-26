@@ -79,6 +79,7 @@
         .skill-card p {font-size:0.9rem;color:#666;}
 
         /* Experience Section */
+/* Experience Section */
 .experience-section {
   padding: 40px 20px;
   text-align: center;
@@ -88,19 +89,19 @@
   font-size: 2.5rem;
   margin-bottom: 30px;
   color: rgb(109,67,0);
-  text-align: center;
 }
 
 .experience-wrapper {
-  overflow: hidden; /* sembunyikan scroll bar */
-  position: relative;
-  margin-top: 30px; /* card turun sedikit */
+  overflow-x: auto; /* bisa digeser manual */
+  scroll-snap-type: x mandatory; /* snap ke tiap card */
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 15px;
 }
 
 .experience-row {
   display: flex;
   gap: 20px;
-  animation: scrollExperience 40s linear infinite; /* auto jalan */
+  padding: 10px;
 }
 
 .experience-card {
@@ -110,6 +111,7 @@
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   text-align: center;
+  scroll-snap-align: start;
   transition: transform 0.3s ease;
 }
 .experience-card:hover {
@@ -132,14 +134,9 @@
   color: #777;
 }
 
-/* Animasi jalan horizontal */
-@keyframes scrollExperience {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+/* Sembunyikan scrollbar (opsional) */
+.experience-wrapper::-webkit-scrollbar {
+  display: none;
 }
 
         /* Projects Section */
