@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rasyid Portofolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo" data-aos="zoom-in" data-aos-duration="1000">
+        <span>Habiburrasyid</span>
+      </div>
+      <div class="links">
+        <div class="link"><a href="#home">Home</a></div>
+        <div class="link"><a href="#about">About</a></div>
+        <div class="link"><a href="#skills">Skills</a></div>
+        <div class="link"><a href="#experience">Experience</a></div>
+        <div class="link"><a href="#projects">Project</a></div>
+        <div class="link contact-btn"><a href="#contact">Contact</a></div>
+      </div>
+      <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+    </div>
+    <div class="dropdown">
+      <div class="links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Project</a>
+        <a href="#contact">Contact</a>
+        <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home">
+    <div class="main-container">
+      <div class="image" data-aos="zoom-in-right">
+        <img src="main.png" alt="Profile">
+      </div>
+      <div class="content">
+        <h1 data-aos="fade-left">Hey I'm <span>Habiburrasyid Assabily</span></h1>
+        <div class="typewriter" data-aos="fade-right">I'm a <span></span></div>
+        <p data-aos="flip-up">
+          Saya siswa SMK Telkom Sidoarjo jurusan <b>SIJA</b> yang memiliki minat di bidang 
+          <b>UI/UX Design</b>, Frontend Development, dan desain website modern.
+        </p>
+        <div class="social-links" data-aos="flip-down">
+          <a href="#"><i class="fa-brands fa-github"></i></a>
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+        <div class="btn" data-aos="zoom-out-left">
+          <button>Download CV</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="about-container">
+      <div class="about-image" data-aos="zoom-in-right">
+        <img src="main.png" alt="About Me">
+      </div>
+      <div class="about-content">
+        <h2 data-aos="fade-left">About Me</h2>
+        <p data-aos="fade-up">
+          Saya <b>Habiburrasyid Assabily</b>, siswa SMK Telkom Sidoarjo jurusan 
+          <b>Sistem Informasi Jaringan dan Aplikasi (SIJA)</b>.  
+          Memiliki minat besar di bidang <b>UI/UX Design</b>, pengembangan frontend, 
+          serta desain website. Terbiasa menggunakan <b>Figma</b>, HTML, CSS, dan JavaScript 
+          untuk membuat tampilan yang modern, simpel, dan interaktif.
+        </p>
+       <div class="about-stats" data-aos="fade-up">
+          <div class="stat-box">
+            <h3><span id="projects-count">0</span>+</h3>
+            <p>Project Completed</p>
+          </div>
+          <div class="stat-box">
+            <h3><span id="experiences-count">7</span>+</h3>
+            <p>Experiences</p>
+          </div>
+          <div class="stat-box">
+            <h3><span id="skills-count">8</span>+</h3>
+            <p>Skills</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+<section id="skills" class="skills-section">
+  <h2 data-aos="fade-up">Skills</h2>
+  <div class="skills-grid">
+    <!-- Baris 1 -->
+    <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+      <img src="img/figma.png" alt="Figma Logo" />
+      <h3>Figma</h3>
+      <p>UI/UX</p>
+    </div>
+    <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+      <img src="img/html.png" alt="HTML Logo" class="html-logo" />
+      <h3>HTML</h3>
+      <p>Frontend</p>
+    </div>
+    <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
+      <img src="img/css.png" alt="CSS Logo" />
+      <h3>CSS3</h3>
+      <p>Frontend</p>
+    </div>
+    <div class="skill-card" data-aos="fade-up" data-aos-delay="400">
+      <img src="img/js.png" alt="JavaScript Logo" class="js-logo" />
+      <h3>JavaScript</h3>
+      <p>Frontend</p>
+    </div>
+
+    <!-- Baris 2 -->
+    <div class="skill-card" data-aos="fade-down" data-aos-delay="100">
+      <img src="img/php.png" alt="PHP Logo" class="php-logo" />
+      <h3>PHP</h3>
+      <p>Backend</p>
+    </div>
+    <div class="skill-card" data-aos="fade-down" data-aos-delay="200">
+      <img src="img/laravel.png" alt="Laravel Logo" />
+      <h3>Laravel</h3>
+      <p>Backend</p>
+    </div>
+    <div class="skill-card" data-aos="fade-down" data-aos-delay="300">
+      <img src="img/mysql.png" alt="MySQL Logo" class="mysql-logo" />
+      <h3>MySQL</h3>
+      <p>Database</p>
+    </div>
+    <div class="skill-card" data-aos="fade-down" data-aos-delay="400">
+      <img src="img/react.png" alt="React Logo" />
+      <h3>React</h3>
+      <p>Frontend</p>
+    </div>
+  </div>
+</section>
+
+<!-- Experience Section -->
+<section id="experience" class="experience-section">
+  <h2 data-aos="fade-up">Experience</h2>
+
+  <div class="swiper mySwiper" data-aos="fade-up">
+    <div class="swiper-wrapper">
+      </div>
+
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="projects-section">
+  <h2 data-aos="fade-up">My Projects</h2>
+
+  <div class="projects-grid">
+    <!-- Project Card 1 -->
+    <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+      <img src="img/project1.jpg" alt="Project 1">
+      <div class="project-content">
+        <h3>VIADUX</h3>
+        <p>Membangun website Viadux Parfum dari nol dengan desain UI/UX modern dan user-friendly.</p>
+        <a href="#" target="_blank" class="btn-link">View Project</a>
+      </div>
+    </div>
+
+    <!-- Project Card 2 -->
+    <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+      <img src="img/project2.jpg" alt="Project 2">
+      <div class="project-content">
+        <h3>COBLOAS</h3>
+        <p>Cobloas adalah website UMKM untuk pemilihan digital yang mempermudah proses mencoblos online.</p>
+        <a href="#" target="_blank" class="btn-link">View Project</a>
+      </div>
+    </div>
+
+    <!-- Project Card 3 -->
+    <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+      <img src="img/project3.jpg" alt="Project 3">
+      <div class="project-content">
+        <h3>SENANDIKA</h3>
+        <p>Senandika adalah platform kesehatan mental dengan AI Chatbot pendukung emosi.</p>
+        <a href="#" target="_blank" class="btn-link">View Project</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-container">
+    <h2 class="footer-logo">Habiburrasyid Assabily</h2>
+    <p class="footer-desc">UI/UX & Frontend Developer</p>
+    
+    <ul class="footer-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="footer-socials">
+      <a href="https://github.com/" target="_blank">🐙 GitHub</a>
+      <a href="https://linkedin.com/" target="_blank">💼 LinkedIn</a>
+      <a href="mailto:qaysaraqeel71@gmail.com">✉️ Email</a>
+    </div>
+
+    <p class="footer-copy">&copy; 2025 Habiburrasyid Assabily. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  // ==========================
+  // Data pengalaman
+  // ==========================
+  const experiences = [
+    {
+      image: "img/prestasi1.jpg",
+      title: "Juara 2 Lomba O2SN Badminton Tingkat SMK Sederajat",
+      place: "Dinas Pendidikan Sidoarjo",
+      year: "2024"
+    },
+    {
+      image: "img/prestasi2.jpg",
+      title: "Terbaik ke 1 pameran dan ideate project internalisasi sija 2025",
+      place: "SMK Telkom Sidoarjo",
+      year: "2025"
+    },
+    {
+      image: "img/prestasi3.jpg",
+      title: "Peserta JAYA ARTOMIC FUTSAL CUP RETROPHY 2023",
+      place: "Pembangunan Jaya",
+      year: "2023"
+    },
+    {
+      image: "img/prestasi4.jpg",
+      title: "Peserta EAST JAVA STUDENT LEADER SUMMIT VOL 2",
+      place: "Telkom University Surabaya",
+      year: "2025"
+    },
+    {
+      image: "img/prestasi5.jpg",
+      title: "Freelance Brand Promotion Assistant",
+      place: "English1",
+      year: "2025"
+    },
+    {
+      image: "img/prestasi6.jpg",
+      title: "Sekretaris Anniversary Skomda Militan 3",
+      place: "Skomda Militan SMK Telkom Sidoarjo",
+      year: "2025"
+    },
+    {
+      image: "img/prestasi7.jpg",
+      title: "Peserta AISCO Sport Competition",
+      place: "Universitas Negri Surabaya",
+      year: "2023"
+    }
+  ];
+
+  // ==========================
+  // Skills (untuk counter)
+  // ==========================
+  const skills = ["Figma", "HTML", "CSS", "JavaScript", "React", "PHP", "Laravel", "MySQL"];
+
+  // ==========================
+  // Fungsi buat card pengalaman
+  // ==========================
+  function createExperienceCard(experience) {
+    return `
+      <div class="swiper-slide">
+        <div class="exp-card">
+          <img src="${experience.image}" alt="${experience.title}">
+          <div class="exp-content">
+            <h3>${experience.title}</h3>
+            <span class="exp-place">${experience.place}</span>
+            <span class="exp-year">${experience.year}</span>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // ==========================
+  // Load + inisialisasi swiper
+  // ==========================
+  function loadAndInitExperiences() {
+    const swiperWrapper = document.querySelector(".swiper-wrapper");
+    let experienceHTML = '';
+    experiences.forEach(exp => {
+      experienceHTML += createExperienceCard(exp);
+    });
+    swiperWrapper.innerHTML = experienceHTML;
+
+    new Swiper(".mySwiper", {
+      slidesPerView: "auto",
+      spaceBetween: 30,
+      loop: true,
+      freeMode: true,
+      freeModeMomentum: false,
+      autoplay: {
+        delay: 0,
+        disableOnInteraction: false,
+      },
+      speed: 5000,
+      grabCursor: true,
+    });
+  }
+
+  // ==========================
+  // Counter
+  // ==========================
+  function animateCounter(id, target) {
+    let count = 0;
+    const interval = setInterval(() => {
+      if (count < target) {
+        count++;
+        document.getElementById(id).innerText = count;
+      } else {
+        clearInterval(interval);
+      }
+    }, 50);
+  }
+
+  function initCounters() {
+    const totalProjects = 10; // contoh project fix
+    const totalExperiences = experiences.length;
+    const totalSkills = skills.length;
+
+    animateCounter("project-count", totalProjects);
+    animateCounter("exp-count", totalExperiences);
+    animateCounter("skill-count", totalSkills);
+  }
+
+  // ==========================
+  // DOM Ready
+  // ==========================
+  document.addEventListener("DOMContentLoaded", function() {
+    AOS.init({ offset: 0 });
+    loadAndInitExperiences();
+    initCounters();
+  });
+
+  // ==========================
+  // Mobile Nav
+  // ==========================
+  function hamburg() {
+    document.querySelector(".dropdown").style.transform = "translateY(0px)";
+  }
+  function cancel() {
+    document.querySelector(".dropdown").style.transform = "translateY(-500px)";
+  }
+</script>
+</body>
+</html>
