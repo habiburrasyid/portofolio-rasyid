@@ -1,227 +1,345 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rasyid Portofolio</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habiburrasyid Assabily - Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        * {padding:0;margin:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+        html {overflow-x:hidden;}
+        body {background: linear-gradient(to right, rgb(255,255,255), rgb(254,215,173)); overflow-x:hidden;}
+
+        /* Navbar */
+        nav {width:100%;height:10vh;position:sticky;top:0;z-index:1000;}
+        .nav-container {width:100%;height:100%;display:flex;justify-content:space-around;align-items:center;position:relative;}
+        .logo {color:black;font-size:2rem;font-weight:bolder;}
+        .logo span {color: rgb(109,67,0); text-shadow:0 0 10px rgb(109,67,0);}
+        .hamburg,.cancel {cursor:pointer;position:absolute;right:15px;top:10px;color:black;font-size:2rem;display:none;}
+        .nav-container .links {display:flex;gap:3rem;align-items:center;}
+        .nav-container .links a {position:relative;font-size:1.2rem;color:black;text-decoration:none;font-weight:500;transition:0.3s linear;}
+        .nav-container .links a::before {position:absolute;content:"";bottom:-3px;left:0;width:0;height:3px;background-color: rgb(109,67,0);transition:0.2s linear;}
+        .nav-container .links a:hover::before {width:100%;}
+        .nav-container .contact-btn {background-color:transparent;padding:5px 20px;border-radius:20px;border:2px solid rgb(109,67,0);}
+        .nav-container .contact-btn a {color:black;transition:0.3s linear;}
+        .nav-container .contact-btn:hover,.nav-container .contact-btn:hover a {background-color: rgb(109,67,0); color:white;}
+        .dropdown {position:absolute;top:0;transform:translateY(-500px);width:100%;height:auto;backdrop-filter:brightness(40%) blur(3px);box-shadow:0 0 20px black;transition:0.2s linear; z-index:99;}
+        .dropdown .links a {color:white;display:flex;text-decoration:none;justify-content:center;padding:15px 0;align-items:center;transition:0.2s linear;}
+        .dropdown .links a:hover {background-color: rgb(109,67,0);}
+        .cancel {color:white; top:10px;}
+
+        /* Hero Section */
+        section {width:100%;min-height:90vh;}
+        .main-container {width:100%;height:100%;display:flex;justify-content:space-evenly;align-items:center;padding:80px 5%;}
+        .main-container .image {width:45%;display:flex;justify-content:center;align-items:center;}
+        .main-container .image img {width:100%;max-width:400px;height:auto;object-fit:cover;border-radius:50% 40% 60% 50% / 55% 45% 55% 45%;background:#fff;padding:12px;box-shadow:0 0 0 3px #d4a762,0 8px 20px rgba(0,0,0,0.15);transition: transform 0.3s ease, box-shadow 0.3s ease;}
+        .main-container .image img:hover {transform: scale(1.05); box-shadow:0 0 0 3px #d4a762,0 12px 30px rgba(0,0,0,0.25);}
+        .main-container .content {color:black;width:40%;min-height:100px;}
+        .content h1 {font-size:clamp(1rem,2rem + 5vw,3rem);}
+        .content h1 span {color: rgb(109,67,0); text-shadow:0 0 10px rgb(109,67,0);}
+        .content .typewriter {font-weight:600;font-size:clamp(1rem,1rem + 5vw,2rem);}
+        .content .typewriter span {color: rgb(109,67,0); font-size:2.5rem; text-shadow:0 0 5px rgb(109,67,0); position:relative; transition:0.3s linear;}
+        .typewriter span::before {content:"UI/UX Designer";animation:words 15s infinite;}
+        .typewriter span::after {content:"";position:absolute;width:calc(100% + 8px);height:100%;border-left:3px solid black;animation:cursor 0.6s linear infinite;}
+        @keyframes cursor {to{border-left:3px solid #b74b4b;}}
+        @keyframes words {0%,33%{content:"UI/UX Designer";} 34%,66%{content:"Frontend Developer";} 67%,100%{content:"Web Designer";}}
+        .content p {font-size:clamp(0.4rem,0.2rem + 9vw,1rem);margin:10px 0;}
+        .social-links {margin:20px 0;}
+        .social-links a {display:inline-flex;justify-content:center;align-items:center;width:3rem;height:3rem;background-color:transparent;border:0.2rem solid rgb(109,67,0);border-radius:50%;color: rgb(109,67,0);margin:5px 10px;font-size:1.5rem;transition:0.2s linear;text-decoration:none;}
+        .social-links a:hover {scale:1.3;color:white;background-color: rgb(109,67,0);filter: drop-shadow(0 0 10px rgb(109,67,0));}
+        .btn {display:flex;justify-content:flex-start;margin-top:20px;}
+        .btn button {background:#8f5800;color:#fff;padding:12px 28px;border:none;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;transition:0.3s ease;box-shadow:0 4px 12px rgba(255,170,0,0.3);}
+        .btn button:hover {background: rgb(254,215,173); transform:translateY(-2px); box-shadow:0 6px 16px rgba(52,52,52,0.5);}
+        .btn a {text-decoration:none;color:inherit;display:inline-block;}
+
+        /* About Section */
+        #about {width:100%;min-height:100vh;display:flex;align-items:center;padding:30px 5%;}
+        .about-container {display:flex;justify-content:space-evenly;align-items:center;gap:50px;width:100%;flex-direction:row-reverse;}
+        .about-image {width:40%;display:flex;justify-content:center;align-items:center;}
+        .about-image img {width:100%;max-width:350px;border-radius:12px;background:#fff;padding:12px;box-shadow:0 0 0 3px #d4a762,0 8px 20px rgba(0,0,0,0.15);}
+        .about-content {width:50%;color:#333;}
+        .about-content h2 {font-size:2.5rem;color: rgb(109,67,0);margin-bottom:20px;}
+        .about-content p {font-size:1.1rem;line-height:1.7;margin-bottom:30px;}
+        .about-stats {display:flex;gap:30px;}
+        .stat-box {background: linear-gradient(135deg,#fef5e7,#fce9d2); padding:20px 30px; border-radius:15px; box-shadow:0 5px 15px rgba(0,0,0,0.1); text-align:center; transition: transform 0.3s ease;}
+        .stat-box:hover {transform:scale(1.05);}
+        .stat-box h3 {font-size:2rem;color: rgb(109,67,0);margin-bottom:10px;}
+        .stat-box p {font-size:1rem;color:#555;}
+
+        /* Skills Section */
+        .skills-section {padding:60px 20px;text-align:center;}
+        .skills-section h2 {font-size:2.5rem;margin-bottom:40px;color: rgb(109,67,0);}
+        .skills-grid {display:grid;grid-template-columns:repeat(4,1fr);gap:25px;max-width:1100px;margin:0 auto;}
+        .skill-card {background:#fff;border-radius:12px;padding:20px;box-shadow:0 4px 10px rgba(0,0,0,0.1);width:180px;height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:transform 0.3s ease;margin:0 auto;}
+        .skill-card:hover {transform:translateY(-8px);}
+        .skill-card img {width:60px;height:60px;object-fit:contain;margin-bottom:15px;}
+        .skill-card h3 {font-size:1.2rem;margin-bottom:5px;color:#333;}
+        .skill-card p {font-size:0.9rem;color:#666;}
+
+        /* Experience Section */
+.experience-section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.experience-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: rgb(109,67,0);
+  text-align: center;
+}
+
+.experience-wrapper {
+  overflow: hidden; /* sembunyikan scroll bar */
+  position: relative;
+  margin-top: 30px; /* card turun sedikit */
+}
+
+.experience-row {
+  display: flex;
+  gap: 20px;
+  animation: scrollExperience 40s linear infinite; /* auto jalan */
+}
+
+.experience-card {
+  flex: 0 0 280px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+.experience-card:hover {
+  transform: translateY(-8px);
+}
+.exp-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+.exp-org {
+  color: #8f5800;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.exp-year {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* Animasi jalan horizontal */
+@keyframes scrollExperience {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+        /* Projects Section */
+        .projects-section {padding:60px 20px;text-align:center;background: linear-gradient(to right, rgb(255,255,255), rgb(254,215,173));}
+        .projects-section h2 {font-size:2.5rem;margin-bottom:40px;color: rgb(109,67,0);}
+        .projects-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;max-width:1100px;margin:0 auto;}
+        .project-card {background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.1);transition:transform 0.3s ease;}
+        .project-card:hover {transform:translateY(-8px);}
+        .project-card img {width:100%;height:200px;object-fit:cover;}
+        .project-content {padding:20px;}
+        .project-content h3 {font-size:1.3rem;margin-bottom:10px;color:#333;}
+        .project-content p {color:#666;margin-bottom:15px;line-height:1.6;}
+        .btn-link {background: rgb(109,67,0);color:white;padding:8px 20px;text-decoration:none;border-radius:5px;transition:0.3s ease;}
+        .btn-link:hover {background:#8b5500;}
+
+        /* Footer */
+        .footer {background:#1f2937;color:white;text-align:center;padding:40px 20px;}
+        .footer-container h2 {font-size:1.8rem;margin-bottom:10px;}
+        .footer-desc {margin-bottom:20px;color:#ccc;}
+        .footer-links {list-style:none;display:flex;justify-content:center;gap:30px;margin-bottom:20px;}
+        .footer-links a {color:white;text-decoration:none;transition:color 0.3s ease;}
+        .footer-links a:hover {color: rgb(109,67,0);}
+        .footer-socials {margin-bottom:20px;}
+        .footer-socials a {color:white;text-decoration:none;margin:0 15px;transition:color 0.3s ease;}
+        .footer-socials a:hover {color: rgb(109,67,0);}
+        .footer-copy {color:#ccc;font-size:0.9rem;}
+
+        /* Responsive */
+        @media(max-width:884px){
+            nav .logo{position:absolute;top:16px;left:15px;font-size:1.4rem;}
+            .nav-container .links{display:none;}
+            .hamburg,.cancel{display:block;font-size:1.8rem;}
+            .main-container{flex-direction:column;align-items:center;text-align:center;padding:20px;}
+            .main-container .content{width:100%;max-width:380px;margin-bottom:20px;}
+            .main-container .image{width:100%;max-width:300px;margin:0 auto 20px auto;}
+            .about-container{flex-direction:column;text-align:center;}
+            .about-image,.about-content{width:100%;}
+            .about-stats{justify-content:center;flex-wrap:wrap;}
+            .skills-grid{grid-template-columns:repeat(2,1fr);}
+            .footer-links{flex-direction:column;gap:15px;}
+        }
+        @media(max-width:576px){
+            .skills-grid{grid-template-columns:1fr;}
+            .projects-grid{grid-template-columns:1fr;}
+        }
+    </style>
 </head>
 <body>
-  <!-- Navbar -->
-  <nav>
-    <div class="nav-container">
-      <div class="logo" data-aos="zoom-in" data-aos-duration="1000">
-        <span>Habiburrasyid</span>
-      </div>
-      <div class="links">
-        <div class="link"><a href="#home">Home</a></div>
-        <div class="link"><a href="#about">About</a></div>
-        <div class="link"><a href="#skills">Skills</a></div>
-        <div class="link"><a href="#experience">Experience</a></div>
-        <div class="link"><a href="#projects">Project</a></div>
-        <div class="link contact-btn"><a href="https://wa.me/6285739439026">Contact</a></div>
-      </div>
-      <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
-    </div>
-    <div class="dropdown">
-      <div class="links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Project</a>
-        <a href="https://wa.me/6285739439026">Contact</a>
-        <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
-      </div>
-    </div>
-  </nav>
 
-  <!-- Hero Section -->
-  <section id="home">
-    <div class="main-container">
-      <div class="image" data-aos="zoom-in-right">
-        <img src="main.png" alt="Profile">
-      </div>
-      <div class="content">
-        <h1 data-aos="fade-left">Hey I'm <span>Habiburrasyid Assabily</span></h1>
-        <div class="typewriter" data-aos="fade-right">I'm a <span></span></div>
-        <p data-aos="flip-up">
-          I am a student at SMK Telkom Sidoarjo majoring in <b>SIJA</b>, with an interest in 
-<b>UI/UX Design</b>, Frontend Development, and modern web design.
-        </p>
-        <div class="social-links" data-aos="flip-down">
-          <a href="https://github.com/habiburrasyid"><i class="fa-brands fa-github"></i></a>
-          <a href="https://www.instagram.com/rasyedd_/"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://www.linkedin.com/in/habiburrasyid-assabily-059b672b8/"><i class="fa-brands fa-linkedin"></i></a>
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo"><span>Habiburrasyid</span></div>
+            <div class="links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <div class="contact-btn"><a href="https://wa.me/6285739439026">Contact</a></div>
+            </div>
+            <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
         </div>
-        <div class="btn" data-aos="zoom-out-left">
-          <button><a href="https://drive.google.com/file/d/1_YMZ1_Zol3Q53Xr-kaz-AG1r3xpDGdgr/view?usp=sharing">Open CV</a></button>
+        <div class="dropdown">
+            <div class="links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="https://wa.me/6285739439026">Contact</a>
+                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </nav>
 
-  <!-- About Section -->
-  <section id="about">
-    <div class="about-container">
-      <div class="about-image" data-aos="zoom-in-right">
-        <img src="main.png" alt="About Me">
-      </div>
-      <div class="about-content">
-        <h2 data-aos="fade-left">About Me</h2>
-        <p data-aos="fade-up">
-          I am <b>Habiburrasyid Assabily</b>, a student at SMK Telkom Sidoarjo majoring in 
-          <b>Network Information Systems and Applications (SIJA)</b>.  
-          I have a strong interest in <b>UI/UX Design</b>, front-end development, 
-          and website design. Experienced in using <b>Figma</b>, HTML, CSS, and JavaScript 
-          to create modern, simple, and interactive interfaces.
-        </p>
-
-       <div class="about-stats" data-aos="fade-up">
-          <div class="stat-box">
-            <h3><span id="projects-count">3</span>+</h3>
-            <p>Project Completed</p>
-          </div>
-          <div class="stat-box">
-            <h3><span id="experiences-count">7</span>+</h3>
-            <p>Experiences</p>
-          </div>
-          <div class="stat-box">
-            <h3><span id="skills-count">8</span>+</h3>
-            <p>Skills</p>
-          </div>
+    <!-- Hero Section -->
+    <section id="home">
+        <div class="main-container" data-aos="fade-up">
+            <div class="image"><img src="main.png" alt="Profile"></div>
+            <div class="content">
+                <h1>Hey I'm <span>Habiburrasyid Assabily</span></h1>
+                <div class="typewriter">I'm a <span></span></div>
+                <p>I am a student at SMK Telkom Sidoarjo majoring in <b>SIJA</b>, with an interest in <b>UI/UX Design</b>, Frontend Development, and modern web design.</p>
+                <div class="social-links">
+                    <a href="https://github.com/habiburrasyid"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.instagram.com/rasyedd_/"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/habiburrasyid-assabily-059b672b8/"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+                <div class="btn"><button><a href="https://drive.google.com/file/d/1_YMZ1_Zol3Q53Xr-kaz-AG1r3xpDGdgr/view?usp=sharing">Open CV</a></button></div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Skills Section -->
-<section id="skills" class="skills-section">
-  <h2 data-aos="fade-up">Skills</h2>
-  <div class="skills-grid">
-    <!-- Baris 1 -->
-    <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
-      <img src="img/figma.png" alt="Figma Logo" />
-      <h3>Figma</h3>
-      <p>UI/UX</p>
-    </div>
-    <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
-      <img src="img/html.png" alt="HTML Logo" class="html-logo" />
-      <h3>HTML</h3>
-      <p>Frontend</p>
-    </div>
-    <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
-      <img src="img/css.png" alt="CSS Logo" />
-      <h3>CSS3</h3>
-      <p>Frontend</p>
-    </div>
-    <div class="skill-card" data-aos="fade-up" data-aos-delay="400">
-      <img src="img/js.png" alt="JavaScript Logo" class="js-logo" />
-      <h3>JavaScript</h3>
-      <p>Frontend</p>
-    </div>
+    <!-- About Section -->
+    <section id="about" data-aos="fade-right">
+        <div class="about-container">
+            <div class="about-image"><img src="main.png" alt="About Me"></div>
+            <div class="about-content">
+                <h2>About Me</h2>
+                <p>I am <b>Habiburrasyid Assabily</b>, a student at SMK Telkom Sidoarjo majoring in <b>Network Information Systems and Applications (SIJA)</b>. I have a strong interest in <b>UI/UX Design</b>, front-end development, and website design. Experienced in using <b>Figma</b>, HTML, CSS, and JavaScript to create modern, simple, and interactive interfaces.</p>
+                <div class="about-stats">
+                    <div class="stat-box"><h3>3+</h3><p>Project Completed</p></div>
+                    <div class="stat-box"><h3>7+</h3><p>Experiences</p></div>
+                    <div class="stat-box"><h3>8+</h3><p>Skills</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Baris 2 -->
-    <div class="skill-card" data-aos="fade-down" data-aos-delay="100">
-      <img src="img/php.png" alt="PHP Logo" class="php-logo" />
-      <h3>PHP</h3>
-      <p>Backend</p>
-    </div>
-    <div class="skill-card" data-aos="fade-down" data-aos-delay="200">
-      <img src="img/laravel.png" alt="Laravel Logo" />
-      <h3>Laravel</h3>
-      <p>Backend</p>
-    </div>
-    <div class="skill-card" data-aos="fade-down" data-aos-delay="300">
-      <img src="img/mysql.png" alt="MySQL Logo" class="mysql-logo" />
-      <h3>MySQL</h3>
-      <p>Database</p>
-    </div>
-    <div class="skill-card" data-aos="fade-down" data-aos-delay="400">
-      <img src="img/react.png" alt="React Logo" />
-      <h3>React</h3>
-      <p>Frontend</p>
-    </div>
-  </div>
-</section>
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section" data-aos="fade-left">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card"><img src="img/figma.png" alt=""><h3>Figma</h3><p>UI/UX Design</p></div>
+            <div class="skill-card"><img src="img/html.png" alt=""><h3>HTML</h3><p>Frontend Development</p></div>
+            <div class="skill-card"><img src="img/css.png" alt=""><h3>CSS</h3><p>Styling</p></div>
+            <div class="skill-card"><img src="img/js.png" alt=""><h3>JavaScript</h3><p>Programming</p></div>
+            <div class="skill-card"><img src="img/react.png" alt=""><h3>React</h3><p>Frontend Library</p></div>
+            <div class="skill-card"><img src="img/laravel.png" alt=""><h3>Laravel</h3><p>Backend Framework</p></div>
+            <div class="skill-card"><img src="img/php.png" alt=""><h3>PHP</h3><p>Data Base</p></div>
+            <div class="skill-card"><img src="img/mysql.png" alt=""><h3>MySql</h3><p>Data Base</p></div>
+        </div>
+    </section>
 
 <!-- Experience Section -->
-<section id="experience" class="experience-section">
-  <h2 data-aos="fade-up">Experience</h2>
-
-  <div class="swiper mySwiper" data-aos="fade-up">
-    <div class="swiper-wrapper">
-      </div>
-
-    <div class="swiper-pagination"></div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-  </div>
-</section>
-
-<!-- Projects Section -->
-<section id="projects" class="projects-section">
-  <h2 data-aos="fade-up">My Projects</h2>
-
-  <div class="projects-grid">
-    <!-- Project Card 1 -->
-    <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-      <img src="img/project1.jpg" alt="Project 1">
-      <div class="project-content">
-        <h3>VIADUX</h3>
-        <p>Membangun website Viadux Parfum dari nol dengan desain UI/UX modern dan user-friendly.</p>
-        <a href="https://www.viadux.my.id/" target="_blank" class="btn-link">View Project</a>
-      </div>
-    </div>
-
-    <!-- Project Card 2 -->
-    <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-      <img src="img/project2.jpg" alt="Project 2">
-      <div class="project-content">
-        <h3>COBLOAS</h3>
-        <p>Cobloas adalah website UMKM untuk pemilihan digital yang mempermudah proses mencoblos online.</p>
-        <a href="https://www.figma.com/design/KDgEBH2dfubcaHpQi4acrh/projek?node-id=0-1&t=XTIoGkbhMNN6IrAx-1" target="_blank" class="btn-link">View Project</a>
-      </div>
-    </div>
-
-    <!-- Project Card 3 -->
-    <div class="project-card" data-aos="fade-up" data-aos-delay="300">
-      <img src="img/project3.jpg" alt="Project 3">
-      <div class="project-content">
-        <h3>SENANDIKA</h3>
-        <p>Senandika adalah platform kesehatan mental dengan AI Chatbot pendukung emosi.</p>
-        <a href="" target="_blank" class="btn-link">View Project</a>
-      </div>
+<section id="experience" class="experience-section" data-aos="fade-up">
+  <h2>Experience</h2>
+  <div class="experience-wrapper">
+    <div class="experience-row" id="experienceContainer">
+      <!-- Card akan di-generate otomatis dari JS -->
     </div>
   </div>
 </section>
 
-<footer class="footer">
-  <div class="footer-container">
-    <h2 class="footer-logo">Habiburrasyid Assabily</h2>
-    <p class="footer-desc">UI/UX & Frontend Developer</p>
-    
-    <ul class="footer-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="https://wa.me/6285739439026">Contact</a></li>
-    </ul>
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section" data-aos="fade-up">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="img/project1.jpg" alt="Project 1">
+                <div class="project-content">
+                    <h3>VIADUX</h3>
+                    <p>Membangun website Viadux Parfum dari nol dengan desain UI/UX modern dan user-friendly.</p>
+                    <a class="btn-link" href="https://www.viadux.my.id/" target="_blank" class="btn-link">View Project</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="img/project2.jpg" alt="Project 2">
+                <div class="project-content">
+                    <h3>COBLOAS</h3>
+                    <p>Cobloas adalah website UMKM untuk pemilihan digital yang mempermudah proses mencoblos online.</p>
+                    <a class="btn-link" href="https://www.figma.com/design/KDgEBH2dfubcaHpQi4acrh/projek?node-id=0-1&t=XTIoGkbhMNN6IrAx-1" target="_blank" class="btn-link">View Project</a>
+                </div>
+            </div>
+             <div class="project-card">
+                <img src="img/project3.jpg" alt="Project 2">
+                <div class="project-content">
+                    <h3>SENANDIKA </h3>
+                    <p>Senandika adalah platform kesehatan mental dengan AI Chatbot pendukung emosi.</p>
+                    <a class="btn-link" href="" target="_blank" class="btn-link">View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="footer-socials">
-      <a href="https://github.com/habiburrasyid" target="_blank">🐙 GitHub</a>
-      <a href="https://www.linkedin.com/in/habiburrasyid-assabily-059b672b8/" target="_blank">💼 LinkedIn</a>
-      <a href="mailto:habiburrasyid2707@gmail.com">✉️ Email</a>
-    </div>
+    <!-- Footer -->
+    <footer class="footer" data-aos="fade-up">
+        <div class="footer-container">
+            <h2>Habiburrasyid Assabily</h2>
+            <p class="footer-desc">Creating modern, simple, and interactive web experiences.</p>
+            <ul class="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+            </ul>
+            <div class="footer-socials">
+                <a href="https://github.com/habiburrasyid"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/habiburrasyid-assabily-059b672b8/"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/rasyedd_/"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <p class="footer-copy">© 2025 Habiburrasyid Assabily. All rights reserved.</p>
+        </div>
+    </footer>
 
-    <p class="footer-copy">&copy; 2025 Habiburrasyid Assabily. All rights reserved.</p>
-  </div>
-</footer>
+    <!-- JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({duration:1000,once:true});
 
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        function hamburg(){
+            document.querySelector(".dropdown").style.transform = "translateY(0)";
+        }
+        function cancel(){
+            document.querySelector(".dropdown").style.transform = "translateY(-500px)";
+        }
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
   // ==========================
@@ -273,97 +391,45 @@
   ];
 
   // ==========================
-  // Skills (untuk counter)
+  // Render card ke DOM
   // ==========================
-  const skills = ["Figma", "HTML", "CSS", "JavaScript", "React", "PHP", "Laravel", "MySQL"];
+  const container = document.getElementById("experienceContainer");
 
-  // ==========================
-  // Fungsi buat card pengalaman
-  // ==========================
-  function createExperienceCard(experience) {
-    return `
-      <div class="swiper-slide">
-        <div class="exp-card">
-          <img src="${experience.image}" alt="${experience.title}">
-          <div class="exp-content">
-            <h3>${experience.title}</h3>
-            <span class="exp-place">${experience.place}</span>
-            <span class="exp-year">${experience.year}</span>
-          </div>
-        </div>
-      </div>
+  // Gandakan array supaya animasi looping terlihat mulus
+  const loopExperiences = [...experiences, ...experiences];
+
+  loopExperiences.forEach(exp => {
+    const card = document.createElement("div");
+    card.className = "experience-card";
+
+    card.innerHTML = `
+      <img src="${exp.image}" alt="${exp.title}" class="exp-img">
+      <h3>${exp.title}</h3>
+      <p class="exp-org">${exp.place}</p>
+      <p class="exp-year">${exp.year}</p>
     `;
-  }
 
-  // ==========================
-  // Load + inisialisasi swiper
-  // ==========================
-  function loadAndInitExperiences() {
-    const swiperWrapper = document.querySelector(".swiper-wrapper");
-    let experienceHTML = '';
-    experiences.forEach(exp => {
-      experienceHTML += createExperienceCard(exp);
-    });
-    swiperWrapper.innerHTML = experienceHTML;
-
-    new Swiper(".mySwiper", {
-      slidesPerView: "auto",
-      spaceBetween: 30,
-      loop: true,
-      freeMode: true,
-      freeModeMomentum: false,
-      autoplay: {
-        delay: 0,
-        disableOnInteraction: false,
-      },
-      speed: 5000,
-      grabCursor: true,
-    });
-  }
-
-  // ==========================
-  // Counter
-  // ==========================
-  function animateCounter(id, target) {
-    let count = 0;
-    const interval = setInterval(() => {
-      if (count < target) {
-        count++;
-        document.getElementById(id).innerText = count;
-      } else {
-        clearInterval(interval);
-      }
-    }, 50);
-  }
-
-  function initCounters() {
-    const totalProjects = 10; // contoh project fix
-    const totalExperiences = experiences.length;
-    const totalSkills = skills.length;
-
-    animateCounter("project-count", totalProjects);
-    animateCounter("exp-count", totalExperiences);
-    animateCounter("skill-count", totalSkills);
-  }
-
-  // ==========================
-  // DOM Ready
-  // ==========================
-  document.addEventListener("DOMContentLoaded", function() {
-    AOS.init({ offset: 0 });
-    loadAndInitExperiences();
-    initCounters();
+    container.appendChild(card);
   });
 
   // ==========================
-  // Mobile Nav
+  // AOS Init
   // ==========================
-  function hamburg() {
-    document.querySelector(".dropdown").style.transform = "translateY(0px)";
-  }
-  function cancel() {
-    document.querySelector(".dropdown").style.transform = "translateY(-500px)";
-  }
+  AOS.init({
+    duration: 1000,
+    once: true,
+  });
+
+  // ==========================
+  // Optional: Pause animasi saat hover
+  // ==========================
+  const row = document.querySelector(".experience-row");
+  row.addEventListener("mouseenter", () => {
+    row.style.animationPlayState = "paused";
+  });
+  row.addEventListener("mouseleave", () => {
+    row.style.animationPlayState = "running";
+  });
 </script>
 </body>
 </html>
