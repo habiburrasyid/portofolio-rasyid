@@ -4,169 +4,197 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Habiburrasyid Assabily - Portfolio</title>
+
+    <!-- Fonts & Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- AOS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
     <style>
-        * {padding:0;margin:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-        html {overflow-x:hidden;}
-        body {background: linear-gradient(to right, rgb(255,255,255), rgb(254,215,173)); overflow-x:hidden;}
+        /* ===============================
+           Global Styles
+        =============================== */
+        * { padding:0; margin:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
+        html { overflow-x:hidden; }
+        body { background: linear-gradient(to right, #fff, #fed7ad); overflow-x:hidden; }
 
-        /* Navbar */
-        nav {width:100%;height:10vh;position:sticky;top:0;z-index:1000;}
-        .nav-container {width:100%;height:100%;display:flex;justify-content:space-around;align-items:center;position:relative;}
-        .logo {color:black;font-size:2rem;font-weight:bolder;}
-        .logo span {color: rgb(109,67,0); text-shadow:0 0 10px rgb(109,67,0);}
-        .hamburg,.cancel {cursor:pointer;position:absolute;right:15px;top:10px;color:black;font-size:2rem;display:none;}
-        .nav-container .links {display:flex;gap:3rem;align-items:center;}
-        .nav-container .links a {position:relative;font-size:1.2rem;color:black;text-decoration:none;font-weight:500;transition:0.3s linear;}
-        .nav-container .links a::before {position:absolute;content:"";bottom:-3px;left:0;width:0;height:3px;background-color: rgb(109,67,0);transition:0.2s linear;}
-        .nav-container .links a:hover::before {width:100%;}
-        .nav-container .contact-btn {background-color:transparent;padding:5px 20px;border-radius:20px;border:2px solid rgb(109,67,0);}
-        .nav-container .contact-btn a {color:black;transition:0.3s linear;}
-        .nav-container .contact-btn:hover,.nav-container .contact-btn:hover a {background-color: rgb(109,67,0); color:white;}
-        .dropdown {position:absolute;top:0;transform:translateY(-500px);width:100%;height:auto;backdrop-filter:brightness(40%) blur(3px);box-shadow:0 0 20px black;transition:0.2s linear; z-index:99;}
-        .dropdown .links a {color:white;display:flex;text-decoration:none;justify-content:center;padding:15px 0;align-items:center;transition:0.2s linear;}
-        .dropdown .links a:hover {background-color: rgb(109,67,0);}
-        .cancel {color:white; top:10px;}
+        /* ===============================
+           Navbar
+        =============================== */
+        nav {
+            width:100%; height:10vh; position:sticky; top:0; z-index:1000;
+        }
+        .nav-container {
+            width:100%; height:100%; display:flex; justify-content:space-around; align-items:center; position:relative;
+        }
+        .logo { color:black; font-size:1.5rem; font-weight:bolder; }
+        .logo span { color:#6d4300; text-shadow:0 0 5px #df8b04; }
+        .hamburg, .cancel { cursor:pointer; position:absolute; right:15px; top:10px; color:black; font-size:2rem; display:none; }
+        .nav-container .links { display:flex; gap:3rem; align-items:center; }
+        .nav-container .links a {
+            position:relative; font-size:1.2rem; color:black; text-decoration:none; font-weight:500; transition:0.3s linear;
+        }
+        .nav-container .links a::before {
+            position:absolute; content:""; bottom:-3px; left:0; width:0; height:3px; background-color:#6d4300; transition:0.2s linear;
+        }
+        .nav-container .links a:hover::before { width:100%; }
+        .nav-container .contact-btn {
+            background-color:transparent; padding:5px 20px; border-radius:20px; border:2px solid #6d4300;
+        }
+        .nav-container .contact-btn a { color:black; transition:0.3s linear; }
+        .nav-container .contact-btn:hover,
+        .nav-container .contact-btn:hover a { background-color:#6d4300; color:white; }
+        .dropdown {
+            position:absolute; top:0; transform:translateY(-500px); width:100%; height:auto;
+            backdrop-filter:brightness(40%) blur(3px); box-shadow:0 0 20px black; transition:0.2s linear; z-index:99;
+        }
+        .dropdown .links a {
+            color:white; display:flex; text-decoration:none; justify-content:center; padding:15px 0; align-items:center; transition:0.2s linear;
+        }
+        .dropdown .links a:hover { background-color:#6d4300; }
+        .cancel { color:white; top:10px; }
 
-        /* Hero Section */
-        section {width:100%;min-height:90vh;}
-        .main-container {width:100%;height:100%;display:flex;justify-content:space-evenly;align-items:center;padding:80px 5%;}
-        .main-container .image {width:45%;display:flex;justify-content:center;align-items:center;}
-        .main-container .image img {width:100%;max-width:400px;height:auto;object-fit:cover;border-radius:50% 40% 60% 50% / 55% 45% 55% 45%;background:#fff;padding:12px;box-shadow:0 0 0 3px #d4a762,0 8px 20px rgba(0,0,0,0.15);transition: transform 0.3s ease, box-shadow 0.3s ease;}
-        .main-container .image img:hover {transform: scale(1.05); box-shadow:0 0 0 3px #d4a762,0 12px 30px rgba(0,0,0,0.25);}
-        .main-container .content {color:black;width:40%;min-height:100px;}
-        .content h1 {font-size:clamp(1rem,2rem + 5vw,3rem);}
-        .content h1 span {color: rgb(109,67,0); text-shadow:0 0 10px rgb(109,67,0);}
-        .content .typewriter {font-weight:600;font-size:clamp(1rem,1rem + 5vw,2rem);}
-        .content .typewriter span {color: rgb(109,67,0); font-size:2.5rem; text-shadow:0 0 5px rgb(109,67,0); position:relative; transition:0.3s linear;}
-        .typewriter span::before {content:"UI/UX Designer";animation:words 15s infinite;}
-        .typewriter span::after {content:"";position:absolute;width:calc(100% + 8px);height:100%;border-left:3px solid black;animation:cursor 0.6s linear infinite;}
-        @keyframes cursor {to{border-left:3px solid #b74b4b;}}
-        @keyframes words {0%,33%{content:"UI/UX Designer";} 34%,66%{content:"Frontend Developer";} 67%,100%{content:"Web Designer";}}
-        .content p {font-size:clamp(0.4rem,0.2rem + 9vw,1rem);margin:10px 0;}
-        .social-links {margin:20px 0;}
-        .social-links a {display:inline-flex;justify-content:center;align-items:center;width:3rem;height:3rem;background-color:transparent;border:0.2rem solid rgb(109,67,0);border-radius:50%;color: rgb(109,67,0);margin:5px 10px;font-size:1.5rem;transition:0.2s linear;text-decoration:none;}
-        .social-links a:hover {scale:1.3;color:white;background-color: rgb(109,67,0);filter: drop-shadow(0 0 10px rgb(109,67,0));}
-        .btn {display:flex;justify-content:flex-start;margin-top:20px;}
-        .btn button {background:#8f5800;color:#fff;padding:12px 28px;border:none;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;transition:0.3s ease;box-shadow:0 4px 12px rgba(255,170,0,0.3);}
-        .btn button:hover {background: rgb(254,215,173); transform:translateY(-2px); box-shadow:0 6px 16px rgba(52,52,52,0.5);}
-        .btn a {text-decoration:none;color:inherit;display:inline-block;}
+        /* ===============================
+           Hero Section
+        =============================== */
+        section { width:100%; min-height:50vh; }
+        .main-container {
+            width:100%; height:100%; display:flex; justify-content:space-evenly; align-items:center; padding:40px 5%;
+        }
+        .main-container .image {
+            width:45%; display:flex; justify-content:center; align-items:center;
+        }
+        .main-container .image img {
+            width:400px; height:400px; object-fit:cover; border-radius:50%; background:#fff; padding:8px;
+            box-shadow:0 0 25px rgba(255,200,100,0.8), 0 8px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .main-container .image img:hover {
+            transform:scale(1.05);
+            box-shadow:0 0 40px rgba(255,200,100,1), 0 12px 30px rgba(0,0,0,0.3);
+        }
+        .main-container .content { color:black; width:40%; min-height:100px; margin-top: 90px; }
+        .content h1 { font-size:clamp(1rem,2rem + 5vw,3rem); }
+        .content h1 span { color:#6d4300; text-shadow:0 0 10px #6d4300; }
+        .content .typewriter { font-weight:600; font-size:clamp(1rem,1rem + 5vw,2rem); }
+        .content .typewriter span { color:#6d4300; font-size:2.5rem; text-shadow:0 0 5px #6d4300; position:relative; transition:0.3s linear; }
+        .typewriter span::before { content:"UI/UX Designer"; animation:words 15s infinite; }
+        .typewriter span::after { content:""; position:absolute; width:calc(100% + 8px); height:100%; border-left:3px solid black; animation:cursor 0.6s linear infinite; }
+        @keyframes cursor { to{ border-left:3px solid #b74b4b; } }
+        @keyframes words {
+            0%,33%{content:"UI/UX Designer";} 
+            34%,66%{content:"Frontend Engineer";} 
+            67%,100%{content:"Web Designer";}
+        }
+        .content p { font-size:clamp(0.4rem,0.2rem + 9vw,1rem); margin:10px 0; }
+        .social-links { margin:20px 0; }
+        .social-links a {
+            display:inline-flex; justify-content:center; align-items:center; width:3rem; height:3rem;
+            background-color:transparent; border:0.2rem solid #6d4300; border-radius:50%; color:#6d4300; margin:5px 10px;
+            font-size:1.5rem; transition:0.2s linear; text-decoration:none;
+        }
+        .social-links a:hover { scale:1.3; color:white; background-color:#6d4300; filter: drop-shadow(0 0 10px #6d4300); }
+        .btn { display:flex; justify-content:flex-start; margin-top:20px; }
+        .btn button {
+            background:#8f5800; color:#fff; padding:12px 28px; border:none; border-radius:8px;
+            font-size:1rem; font-weight:600; cursor:pointer; transition:0.3s ease;
+            box-shadow:0 4px 12px rgba(255,170,0,0.3);
+        }
+        .btn button:hover { background:#fed7ad; transform:translateY(-2px); box-shadow:0 6px 16px rgba(52,52,52,0.5); }
+        .btn a { text-decoration:none; color:inherit; display:inline-block; }
 
-        /* About Section */
-        #about {width:100%;min-height:100vh;display:flex;align-items:center;padding:30px 5%;}
-        .about-container {display:flex;justify-content:space-evenly;align-items:center;gap:50px;width:100%;flex-direction:row-reverse;}
-        .about-image {width:40%;display:flex;justify-content:center;align-items:center;}
-        .about-image img {width:100%;max-width:350px;border-radius:12px;background:#fff;padding:12px;box-shadow:0 0 0 3px #d4a762,0 8px 20px rgba(0,0,0,0.15);}
-        .about-content {width:50%;color:#333;}
-        .about-content h2 {font-size:2.5rem;color: rgb(109,67,0);margin-bottom:20px;}
-        .about-content p {font-size:1.1rem;line-height:1.7;margin-bottom:30px;}
-        .about-stats {display:flex;gap:30px;}
-        .stat-box {background: linear-gradient(135deg,#fef5e7,#fce9d2); padding:20px 30px; border-radius:15px; box-shadow:0 5px 15px rgba(0,0,0,0.1); text-align:center; transition: transform 0.3s ease;}
-        .stat-box:hover {transform:scale(1.05);}
-        .stat-box h3 {font-size:2rem;color: rgb(109,67,0);margin-bottom:10px;}
-        .stat-box p {font-size:1rem;color:#555;}
+        /* ===============================
+           About Section
+        =============================== */
+        #about { width:100%; min-height:100vh; display:flex; align-items:center; padding:20px 5%; }
+        .about-container { display:flex; justify-content:space-evenly; align-items:center; gap:50px; width:100%; flex-direction:row-reverse; }
+        .about-image { width:40%; display:flex; justify-content:center; align-items:center; }
+        .about-image img { width:100%; max-width:350px; border-radius:12px; background:#fff; padding:12px; box-shadow:0 0 0 3px #d4a762, 0 8px 20px rgba(0,0,0,0.15); }
+        .about-content { width:50%; color:#333; }
+        .about-content h2 { font-size:2.5rem; color:#6d4300; margin-bottom:20px; }
+        .about-content p { font-size:1.1rem; line-height:1.7; margin-bottom:30px; }
+        .about-stats { display:flex; gap:30px; }
+        .stat-box {
+            background: linear-gradient(135deg,#fef5e7,#fce9d2); padding:20px 30px; border-radius:15px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.1); text-align:center; transition: transform 0.3s ease;
+        }
+        .stat-box:hover { transform:scale(1.05); }
+        .stat-box h3 { font-size:2rem; color:#6d4300; margin-bottom:10px; }
+        .stat-box p { font-size:1rem; color:#555; }
 
-        /* Skills Section */
-        .skills-section {padding:60px 20px;text-align:center;}
-        .skills-section h2 {font-size:2.5rem;margin-bottom:40px;color: rgb(109,67,0);}
-        .skills-grid {display:grid;grid-template-columns:repeat(4,1fr);gap:25px;max-width:1100px;margin:0 auto;}
-        .skill-card {background:#fff;border-radius:12px;padding:20px;box-shadow:0 4px 10px rgba(0,0,0,0.1);width:180px;height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:transform 0.3s ease;margin:0 auto;}
-        .skill-card:hover {transform:translateY(-8px);}
-        .skill-card img {width:60px;height:60px;object-fit:contain;margin-bottom:15px;}
-        .skill-card h3 {font-size:1.2rem;margin-bottom:5px;color:#333;}
-        .skill-card p {font-size:0.9rem;color:#666;}
+        /* ===============================
+           Skills Section
+        =============================== */
+        .skills-section { padding:60px 20px; text-align:center; }
+        .skills-section h2 { font-size:2.5rem; margin-bottom:40px; color:#6d4300; }
+        .skills-grid {
+            display:grid; grid-template-columns:repeat(4,1fr); gap:25px; max-width:1100px; margin:0 auto;
+        }
+        .skill-card {
+            background:#fff; border-radius:12px; padding:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1);
+            width:180px; height:200px; display:flex; flex-direction:column; align-items:center; justify-content:center;
+            transition:transform 0.3s ease; margin:0 auto;
+        }
+        .skill-card:hover { transform:translateY(-8px); }
+        .skill-card img { width:60px; height:60px; object-fit:contain; margin-bottom:15px; }
+        .skill-card h3 { font-size:1.2rem; margin-bottom:5px; color:#333; }
+        .skill-card p { font-size:0.9rem; color:#666; }
 
-        /* Experience Section */
-/* Experience Section */
-.experience-section {
-  padding: 40px 20px;
-  text-align: center;
-}
+        /* ===============================
+           Experience Section
+        =============================== */
+        .experience-section {
+            padding: 40px 20px; text-align:center;
+        }
+        .experience-section h2 { font-size:2.5rem; margin-bottom:30px; color:#6d4300; }
+        .experience-wrapper { overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; padding-bottom:15px; }
+        .experience-row { display:flex; gap:20px; padding:10px; }
+        .experience-card {
+            flex:0 0 280px; background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1);
+            text-align:center; scroll-snap-align:start; transition: transform 0.3s ease;
+        }
+        .experience-card:hover { transform:translateY(-8px); }
+        .exp-img { width:100%; height:160px; object-fit:cover; border-radius:10px; margin-bottom:15px; }
+        .exp-org { color:#8f5800; font-weight:600; margin-bottom:5px; }
+        .exp-year { font-size:0.9rem; color:#777; }
+        .experience-wrapper::-webkit-scrollbar { display:none; }
 
-.experience-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  color: rgb(109,67,0);
-}
+        /* ===============================
+           Projects Section
+        =============================== */
+        .projects-section { padding:60px 20px; text-align:center; background: linear-gradient(to right, #fff, #fed7ad); }
+        .projects-section h2 { font-size:2.5rem; margin-bottom:40px; color:#6d4300; }
+        .projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:30px; max-width:1100px; margin:0 auto; }
+        .project-card { background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1); transition:transform 0.3s ease; }
+        .project-card:hover { transform:translateY(-8px); }
+        .project-card img { width:100%; height:200px; object-fit:cover; }
+        .project-content { padding:20px; }
+        .project-content h3 { font-size:1.3rem; margin-bottom:10px; color:#333; }
+        .project-content p { color:#666; margin-bottom:15px; line-height:1.6; }
+        .btn-link { background:#6d4300; color:white; padding:8px 20px; text-decoration:none; border-radius:5px; transition:0.3s ease; }
+        .btn-link:hover { background:#8b5500; }
 
-.experience-wrapper {
-  overflow-x: auto; /* bisa digeser manual */
-  scroll-snap-type: x mandatory; /* snap ke tiap card */
-  -webkit-overflow-scrolling: touch;
-  padding-bottom: 15px;
-}
+        /* ===============================
+           Footer
+        =============================== */
+        .footer { background:#1f2937; color:white; text-align:center; padding:40px 20px; }
+        .footer-container h2 { font-size:1.8rem; margin-bottom:10px; }
+        .footer-desc { margin-bottom:20px; color:#ccc; }
+        .footer-links { list-style:none; display:flex; justify-content:center; gap:30px; margin-bottom:20px; }
+        .footer-links a { color:white; text-decoration:none; transition:color 0.3s ease; }
+        .footer-links a:hover { color:#6d4300; }
+        .footer-socials { margin-bottom:20px; }
+        .footer-socials a { color:white; text-decoration:none; margin:0 15px; transition:color 0.3s ease; }
+        .footer-socials a:hover { color:#6d4300; }
+        .footer-copy { color:#ccc; font-size:0.9rem; }
 
-.experience-row {
-  display: flex;
-  gap: 20px;
-  padding: 10px;
-}
-
-.experience-card {
-  flex: 0 0 280px;
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  text-align: center;
-  scroll-snap-align: start;
-  transition: transform 0.3s ease;
-}
-.experience-card:hover {
-  transform: translateY(-8px);
-}
-.exp-img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 15px;
-}
-.exp-org {
-  color: #8f5800;
-  font-weight: 600;
-  margin-bottom: 5px;
-}
-.exp-year {
-  font-size: 0.9rem;
-  color: #777;
-}
-
-/* Sembunyikan scrollbar (opsional) */
-.experience-wrapper::-webkit-scrollbar {
-  display: none;
-}
-
-        /* Projects Section */
-        .projects-section {padding:60px 20px;text-align:center;background: linear-gradient(to right, rgb(255,255,255), rgb(254,215,173));}
-        .projects-section h2 {font-size:2.5rem;margin-bottom:40px;color: rgb(109,67,0);}
-        .projects-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;max-width:1100px;margin:0 auto;}
-        .project-card {background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.1);transition:transform 0.3s ease;}
-        .project-card:hover {transform:translateY(-8px);}
-        .project-card img {width:100%;height:200px;object-fit:cover;}
-        .project-content {padding:20px;}
-        .project-content h3 {font-size:1.3rem;margin-bottom:10px;color:#333;}
-        .project-content p {color:#666;margin-bottom:15px;line-height:1.6;}
-        .btn-link {background: rgb(109,67,0);color:white;padding:8px 20px;text-decoration:none;border-radius:5px;transition:0.3s ease;}
-        .btn-link:hover {background:#8b5500;}
-
-        /* Footer */
-        .footer {background:#1f2937;color:white;text-align:center;padding:40px 20px;}
-        .footer-container h2 {font-size:1.8rem;margin-bottom:10px;}
-        .footer-desc {margin-bottom:20px;color:#ccc;}
-        .footer-links {list-style:none;display:flex;justify-content:center;gap:30px;margin-bottom:20px;}
-        .footer-links a {color:white;text-decoration:none;transition:color 0.3s ease;}
-        .footer-links a:hover {color: rgb(109,67,0);}
-        .footer-socials {margin-bottom:20px;}
-        .footer-socials a {color:white;text-decoration:none;margin:0 15px;transition:color 0.3s ease;}
-        .footer-socials a:hover {color: rgb(109,67,0);}
-        .footer-copy {color:#ccc;font-size:0.9rem;}
-
-        /* Responsive */
+        /* ===============================
+           Responsive
+        =============================== */
         @media(max-width:884px){
-            nav .logo{position:absolute;top:16px;left:15px;font-size:1.4rem;}
+            nav .logo{position:absolute; top:16px; left:15px; font-size:1.4rem;}
             .nav-container .links{display:none;}
             .hamburg,.cancel{display:block;font-size:1.8rem;}
             .main-container{flex-direction:column;align-items:center;text-align:center;padding:20px;}
@@ -216,7 +244,7 @@
     <!-- Hero Section -->
     <section id="home">
         <div class="main-container" data-aos="fade-up">
-            <div class="image"><img src="main.png" alt="Profile"></div>
+            <div class="image"><img src="main1.png" alt="Profile"></div>
             <div class="content">
                 <h1>Hey I'm <span>Habiburrasyid Assabily</span></h1>
                 <div class="typewriter">I'm a <span></span></div>
@@ -262,15 +290,15 @@
         </div>
     </section>
 
-<!-- Experience Section -->
-<section id="experience" class="experience-section" data-aos="fade-up">
-  <h2>Experience</h2>
-  <div class="experience-wrapper">
-    <div class="experience-row" id="experienceContainer">
-      <!-- Card akan di-generate otomatis dari JS -->
-    </div>
-  </div>
-</section>
+    <!-- Experience Section -->
+    <section id="experience" class="experience-section" data-aos="fade-up">
+        <h2>Experience</h2>
+        <div class="experience-wrapper">
+            <div class="experience-row" id="experienceContainer">
+                <!-- Card akan di-generate otomatis dari JS -->
+            </div>
+        </div>
+    </section>
 
     <!-- Projects Section -->
     <section id="projects" class="projects-section" data-aos="fade-up">
@@ -281,7 +309,7 @@
                 <div class="project-content">
                     <h3>VIADUX</h3>
                     <p>Membangun website Viadux Parfum dari nol dengan desain UI/UX modern dan user-friendly.</p>
-                    <a class="btn-link" href="https://www.viadux.my.id/" target="_blank" class="btn-link">View Project</a>
+                    <a class="btn-link" href="https://www.viadux.my.id/" target="_blank">View Project</a>
                 </div>
             </div>
             <div class="project-card">
@@ -289,15 +317,15 @@
                 <div class="project-content">
                     <h3>COBLOAS</h3>
                     <p>Cobloas adalah website UMKM untuk pemilihan digital yang mempermudah proses mencoblos online.</p>
-                    <a class="btn-link" href="https://www.figma.com/design/KDgEBH2dfubcaHpQi4acrh/projek?node-id=0-1&t=XTIoGkbhMNN6IrAx-1" target="_blank" class="btn-link">View Project</a>
+                    <a class="btn-link" href="https://www.figma.com/design/KDgEBH2dfubcaHpQi4acrh/projek?node-id=0-1&t=XTIoGkbhMNN6IrAx-1" target="_blank">View Project</a>
                 </div>
             </div>
-             <div class="project-card">
-                <img src="img/project3.jpg" alt="Project 2">
+            <div class="project-card">
+                <img src="img/project3.jpg" alt="Project 3">
                 <div class="project-content">
-                    <h3>SENANDIKA </h3>
+                    <h3>SENANDIKA</h3>
                     <p>Senandika adalah platform kesehatan mental dengan AI Chatbot pendukung emosi.</p>
-                    <a class="btn-link" href="" target="_blank" class="btn-link">View Project</a>
+                    <a class="btn-link" href="#" target="_blank">View Project</a>
                 </div>
             </div>
         </div>
@@ -325,108 +353,64 @@
     </footer>
 
     <!-- JS -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        AOS.init({duration:1000,once:true});
-
-        function hamburg(){
-            document.querySelector(".dropdown").style.transform = "translateY(0)";
-        }
-        function cancel(){
-            document.querySelector(".dropdown").style.transform = "translateY(-500px)";
-        }
-    </script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
-  // ==========================
-  // Data pengalaman
-  // ==========================
-  const experiences = [
-    {
-      image: "img/prestasi1.jpg",
-      title: "Juara 2 Lomba O2SN Badminton Tingkat SMK Sederajat",
-      place: "Dinas Pendidikan Sidoarjo",
-      year: "2024"
-    },
-    {
-      image: "img/prestasi2.jpg",
-      title: "Terbaik ke 1 pameran dan ideate project internalisasi sija 2025",
-      place: "SMK Telkom Sidoarjo",
-      year: "2025"
-    },
-    {
-      image: "img/prestasi3.jpg",
-      title: "Peserta JAYA ARTOMIC FUTSAL CUP RETROPHY 2023",
-      place: "Pembangunan Jaya",
-      year: "2023"
-    },
-    {
-      image: "img/prestasi4.jpg",
-      title: "Peserta EAST JAVA STUDENT LEADER SUMMIT VOL 2",
-      place: "Telkom University Surabaya",
-      year: "2025"
-    },
-    {
-      image: "img/prestasi5.jpg",
-      title: "Freelance Brand Promotion Assistant",
-      place: "English1",
-      year: "2025"
-    },
-    {
-      image: "img/prestasi6.jpg",
-      title: "Sekretaris Anniversary Skomda Militan 3",
-      place: "Skomda Militan SMK Telkom Sidoarjo",
-      year: "2025"
-    },
-    {
-      image: "img/prestasi7.jpg",
-      title: "Peserta AISCO Sport Competition",
-      place: "Universitas Negri Surabaya",
-      year: "2023"
+    AOS.init({ duration:1000, once:true });
+
+    // Navbar dropdown
+    function hamburg() { document.querySelector(".dropdown").style.transform = "translateY(0)"; }
+    function cancel() { document.querySelector(".dropdown").style.transform = "translateY(-500px)"; }
+
+    // ==========================
+    // Data pengalaman
+    // ==========================
+    const experiences = [
+        { image:"img/prestasi1.jpg", title:"Juara 2 Lomba O2SN Badminton Tingkat SMK Sederajat", place:"Dinas Pendidikan Sidoarjo", year:"2024" },
+        { image:"img/prestasi2.jpg", title:"Terbaik ke 1 pameran dan ideate project internalisasi sija 2025", place:"SMK Telkom Sidoarjo", year:"2025" },
+        { image:"img/prestasi3.jpg", title:"Peserta JAYA ARTOMIC FUTSAL CUP RETROPHY 2023", place:"Pembangunan Jaya", year:"2023" },
+        { image:"img/prestasi4.jpg", title:"Peserta EAST JAVA STUDENT LEADER SUMMIT VOL 2", place:"Telkom University Surabaya", year:"2025" },
+        { image:"img/prestasi5.jpg", title:"Freelance Brand Promotion Assistant", place:"English1", year:"2025" },
+        { image:"img/prestasi6.jpg", title:"Sekretaris Anniversary Skomda Militan 3", place:"Skomda Militan SMK Telkom Sidoarjo", year:"2025" },
+        { image:"img/prestasi7.jpg", title:"Peserta AISCO Sport Competition", place:"Universitas Negri Surabaya", year:"2023" },
+    ];
+
+    const container = document.getElementById("experienceContainer");
+    const loopExperiences = [...experiences, ...experiences];
+
+    loopExperiences.forEach((exp,index) => {
+        const card = document.createElement("div");
+        card.className = "experience-card";
+        // Tambahkan AOS fade-up & delay
+        card.setAttribute("data-aos","fade-up");
+        card.setAttribute("data-aos-delay", index*200);
+        card.innerHTML = `
+            <img src="${exp.image}" alt="${exp.title}" class="exp-img">
+            <h3>${exp.title}</h3>
+            <p class="exp-org">${exp.place}</p>
+            <p class="exp-year">${exp.year}</p>
+        `;
+        container.appendChild(card);
+    });
+
+    // ==========================
+    // Auto-scroll horizontal
+    // ==========================
+    const experienceRow = document.querySelector(".experience-row");
+    let scrollStep = 1;
+    let scrollInterval = 20;
+    let scrollAmount = 0;
+
+    function autoScroll() {
+        scrollAmount += scrollStep;
+        if(scrollAmount >= experienceRow.scrollWidth / 2) scrollAmount = 0;
+        experienceRow.scrollLeft = scrollAmount;
     }
-  ];
 
-  // ==========================
-  // Render card ke DOM
-  // ==========================
-  const container = document.getElementById("experienceContainer");
+    let scrollTimer = setInterval(autoScroll, scrollInterval);
 
-  // Gandakan array supaya animasi looping terlihat mulus
-  const loopExperiences = [...experiences, ...experiences];
-
-  loopExperiences.forEach(exp => {
-    const card = document.createElement("div");
-    card.className = "experience-card";
-
-    card.innerHTML = `
-      <img src="${exp.image}" alt="${exp.title}" class="exp-img">
-      <h3>${exp.title}</h3>
-      <p class="exp-org">${exp.place}</p>
-      <p class="exp-year">${exp.year}</p>
-    `;
-
-    container.appendChild(card);
-  });
-
-  // ==========================
-  // AOS Init
-  // ==========================
-  AOS.init({
-    duration: 1000,
-    once: true,
-  });
-
-  // ==========================
-  // Optional: Pause animasi saat hover
-  // ==========================
-  const row = document.querySelector(".experience-row");
-  row.addEventListener("mouseenter", () => {
-    row.style.animationPlayState = "paused";
-  });
-  row.addEventListener("mouseleave", () => {
-    row.style.animationPlayState = "running";
-  });
+    // Pause scroll saat hover
+    experienceRow.addEventListener("mouseenter", () => clearInterval(scrollTimer));
+    experienceRow.addEventListener("mouseleave", () => scrollTimer = setInterval(autoScroll, scrollInterval));
 </script>
 </body>
 </html>
